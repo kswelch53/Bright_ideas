@@ -1,0 +1,73 @@
+body{
+  background: lightblue;
+  font-family: sans-serif;
+}
+
+fieldset{
+  width: 50%;
+}
+
+h1{
+  font-style: italic;
+  font-weight: lighter;
+}
+
+.error_messages p{
+  color: red;
+}
+
+.header{
+  display: block;
+}
+
+.header a{
+  margin-right: 20px;
+}
+
+.header h1{
+  margin-right: 40%;
+}
+
+.ideabox{
+  width: 40%;
+  height: auto;
+}
+
+.ideabox a{
+  margin-left: 50px;
+}
+
+input{
+  background-color: silver;
+  border-radius: 10px;
+}
+
+.one_line{
+  display: inline-block;
+}
+
+table{
+  border-collapse: collapse;
+  width: 55%;
+  border: 1px solid black;
+  text-align: center;
+}
+
+/*zebra striping for table rows*/
+tbody tr:nth-child(even){
+  background-color: lavender;
+}
+tbody tr:nth-child(odd){
+  background-color: lightpink;
+}
+
+td{
+    font-family: sans-serif;
+    border-left: 1px solid black;
+}
+
+textarea{
+  width: 40%;
+  height: 50px;
+  overflow: hidden;
+}

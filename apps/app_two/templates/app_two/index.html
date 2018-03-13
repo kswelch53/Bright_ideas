@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'app_two/css/style.css' %}" media="screen" title="no title">
+    <title></title>
+  </head>
+
+  <body>
+
+    <div class = "header">
+    <h1 class="one_line">Hi, {{ request.session.user_alias }}!</h1><a href={% url 'app1:logout' %}>Log out</a>
+  </div>
+
+
+  <div class = "form_div">
+    <form class="this_form" action="{% url 'app2:create_idea' %}" method="POST">
+      {% csrf_token %}
+        <textarea name = "post" placeholder = "Post something witty here..." rows="1" cols="40%"></textarea>
+        <input type="Submit" value="Idea!">
+    </form>
+  </div>
+
+  <div class="ideabox">
+    {% for idea in all_ideas %}
+      <p><a href="{% url 'app2:users' user_id=idea.adds_idea.id %}">{{ idea.adds_idea.name }}</a> says:<fieldset>{{ idea.post }}</fieldset></p>
+      <p><a href="{% url 'app2:like_idea' post_id=idea.id %}">Like</a><a href="{% url 'app2:all_likes' post_id=idea.id %}">{{ idea.likes_idea.count }} people</a> like this</p>
+
+      {% if idea.adds_idea.id == request.session.user_id %}
+        <p><a href="{% url 'app2:delete_post' post_id=idea.id %}">Delete this Post</a></p>
+      {% endif %}
+    {% endfor %}
+  </div>
+
+
+  </body>
+</html>

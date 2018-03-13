@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'app_two/css/style.css' %}" media="screen" title="no title">
+    <title></title>
+  </head>
+
+  <body>
+
+    <div class = "header">
+      <a href={% url 'app2:index' %}>Bright Ideas</a><a href={% url 'app1:logout' %}>Log out</a>
+    </div>
+
+    <p><a href="{% url 'app2:users' user_id=idea.adds_idea.id %}">{{ idea.adds_idea.name }}</a> says: <fieldset>{{ idea.post }}</fieldset>
+
+
+    <div class = "table1">
+    <h3>People who liked this post:</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Alias</a></th>
+            <th>Name</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          {% for user in users %}
+            <tr>
+              <p><td><a href="{% url 'app2:users' user_id=user.id %}">{{ user.alias }}</a></td></p>
+              <p><td>{{ user.name }}</td></p>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div><!-- table1 end div -->
+    <br>
+
+  </body>
+</html>
