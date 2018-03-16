@@ -5,6 +5,7 @@ body{
 
 fieldset{
   width: 50%;
+  border-color: purple;
 }
 
 h1{
@@ -14,6 +15,10 @@ h1{
 
 .error_messages p{
   color: red;
+}
+
+h6{
+  color: purple;
 }
 
 .header{
